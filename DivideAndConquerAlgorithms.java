@@ -73,7 +73,10 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The maximum item of MyDynamicList	  
 	 */	
 	public int maxInt(MyDynamicList m){
-		
+		if (m.length() >= 0) {
+			int temp = ???;
+		}
+		return 0;
 	}
 
 	//-------------------------------------------------------------------
