@@ -73,7 +73,18 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The maximum item of MyDynamicList	  
 	 */	
 	public int maxInt(MyDynamicList m){
-		
+		int max = m.getElement(0);
+		if (m.length() > 0) {
+			for (int i = 0; i <= m.length()-1; i++) {
+				if (max < m.getElement(i)) {
+					max = m.getElement(i);
+				}
+				else {	
+				}
+			}
+		return max;
+		}
+	return -1;
 	}
 
 	//-------------------------------------------------------------------
@@ -85,7 +96,23 @@ public class DivideAndConquerAlgorithms {
 	 * @return: Whether m is sorted in decreasing order or not.  
 	 */	
 	public boolean isReverse(MyDynamicList m){
-			
+		int a = 0;
+		int b = 0;
+		boolean isReverse = false;
+		if (m.length() > 0) {
+				for (int i=0; i<=m.length()-2; i++) {
+					a =m.getElement(i);
+					b =m.getElement(i+1);
+					if (a>b) {
+						isReverse = true;
+					}
+					else {
+						isReverse = false;
+						break;
+					}
+				}	
+		}
+	return isReverse;	
 	}
 
 	//-------------------------------------------------------------------
@@ -98,6 +125,12 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The amount of appearances of n into m  
 	 */	
 	public int getNumAppearances(MyDynamicList m, int n){
+		int count = 0;
+		for (int i=0; i<=m.length()-1; i++)
+			if (m.getElement(i)==n) {
+				count ++;
+			}
+		return count;
 		
 	}
 
@@ -112,6 +145,11 @@ public class DivideAndConquerAlgorithms {
 	 */	
 
 	public int power(int n, int m){
+		int ans = n;
+		for (int i=0; i < m -1; i++ )
+			ans = ans * n;
+			
+		return ans;
 			
 	}
 
@@ -124,7 +162,35 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The term being computed 
 	 */	
 	public int lucas(int n){
-			
+		int a = 2;
+		int b = 1;
+		int c = a+b;
+		int error = 0;
+		
+		if(n > 3) {
+			for(int i=0; i<=n-2; i++) {
+				c = a+b;
+				a = b;
+				b = c;
+			}
+		}
+		else if (n>0) {
+			return n;
+		}
+		else if (n==1) {
+			return a;
+		}
+		else if (n==2) {
+			return b;
+		}
+		else if (n==3) {
+			return c;
+		}
+		else {
+			return (error) ;
+		}
+		
+	return c;		
 	}
 
 	//-------------------------------------------------------------------
@@ -139,16 +205,22 @@ public class DivideAndConquerAlgorithms {
 	 * @param n: The length of the desired pattern
 	 */	
 	public void drawImage(int n){
-		
+		String image = "*";
+		for (int i=0; i <= n-1; i++) {
+			System.out.println(image);
+			image = image+"*";
+		}
 	}
 
 	//-------------------------------------------------------------------
 	// 7. drawLine --> Prints a line of a given length
 	//-------------------------------------------------------------------	
 	public void drawLine(int n){
-			
-
+		String line = "_";
+		for(int i=0; i<=n-1; i++) {
+			line = line + "_";
+		}
+		System.out.println(line);
 	}
 
 }
-
