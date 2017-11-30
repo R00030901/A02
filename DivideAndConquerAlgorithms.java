@@ -44,7 +44,60 @@ public class ChangeMaking {
 	 */
 	public static int makeChangeGreedy(int[] denoms, int val)
 	{
-		// Complete this function
+		// Declare variables
+		int total = 0;
+		int value = val;
+		int coinCount = 0;
+		// scenario identification
+		int scenario = 0;
+		
+		// rule 1 no items in array
+		if (denoms.length == 0) {
+			scenario = 1;
+		}
+		else if (value == 0) {
+			scenario = 2;
+		}
+		else if (total == value) {
+			scenario = 3;
+		}
+		else if (total > value) {
+			scenario = 4;
+		}
+		else if (total < value) {
+			scenario = 5;
+		}
+		else {
+			System.out.println("Could not evaluate array, please check array and try again.");
+		}
+		
+		// the cases
+		switch(scenario) {
+		case 1:
+			System.out.println("There are no items to add");
+			
+			break;
+			
+		case 2:
+			System.out.println("No Computation is needed");
+			
+			break;
+			
+		case 3:
+			System.out.println("Operation Finished");
+			
+			break;
+			
+		case 4:
+			System.out.println("The operation returned an invalid answer");
+			
+			break;
+			
+		case 5:
+			//System.out.println("we got to case 5");
+			//coinCount++;
+		}
+		return coinCount;
 	}
 
 	/**
