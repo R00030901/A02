@@ -55,17 +55,24 @@ public class ChangeMaking {
 		if (denoms.length == 0) {
 			scenario = 1;
 		}
+		// rule 2 no value to total up to
 		else if (value == 0) {
 			scenario = 2;
 		}
+		// rule 3 base statement
 		else if (total == value) {
 			scenario = 3;
 		}
+		// rule 4 if the code over added to total
 		else if (total > value) {
 			scenario = 4;
 		}
+		// rule 5 main operational code: expected input
 		else if (total < value) {
 			scenario = 5;
+			/* method depends on the list being ordered largest to smallest and returns the minimum number of coins 
+			 * required to get to total
+			 */
 		}
 		else {
 			System.out.println("Could not evaluate array, please check array and try again.");
@@ -94,8 +101,27 @@ public class ChangeMaking {
 			break;
 			
 		case 5:
+			//block comment code & uncomment print to check of the switch statement is working
 			//System.out.println("we got to case 5");
 			//coinCount++;
+			
+			while (total < value) {
+				for (int i = 0; i < denoms.length; i++) {
+					
+
+						for (int j = 0; j < denoms.length; j++) {
+							if (total + denoms[i] <= value) {
+							total = total + denoms[i];
+							coinCount++;
+							//System.out.println("total " + total + " : value " + denoms[i]);
+							/*uncomment print statement to see the total being added up and what order the 
+							 * values are being added in 
+							 */
+						}
+					}
+				} 
+			}
+			return coinCount;
 		}
 		return coinCount;
 	}
